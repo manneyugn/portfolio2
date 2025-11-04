@@ -1,0 +1,140 @@
+{
+    "personal": {
+        "name": "John Doe",
+        "title": "Full Stack Developer & UI/UX Designer",
+        "description": "I craft beautiful, responsive web applications with modern technologies. Passionate about creating seamless user experiences and writing clean, efficient code.",
+        "bio": [
+            "Hello! I'm John, a passionate full-stack developer with over 5 years of experience building web applications. I specialize in React, Node.js, and modern web technologies.",
+            "I love solving complex problems and turning ideas into beautiful, functional websites. When I'm not coding, you can find me exploring new technologies, contributing to open source, or enjoying the great outdoors."
+        ],
+        "contact": {
+            "email": "john.doe@email.com",
+            "phone": "+1 (555) 123-4567",
+            "location": "San Francisco, CA"
+        },
+        "social": [
+            {
+                "name": "LinkedIn",
+                "icon": "fab fa-linkedin-in",
+                "url": "https://linkedin.com/in/johndoe"
+            },
+            {
+                "name": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/johndoe"
+            },
+            {
+                "name": "Twitter",
+                "icon": "fab fa-twitter",
+                "url": "https://twitter.com/johndoe"
+            },
+            {
+                "name": "Dribbble",
+                "icon": "fab fa-dribbble",
+                "url": "https://dribbble.com/johndoe"
+            }
+        ]
+    },
+    "stats": [
+        {
+            "number": "50+",
+            "label": "Projects Completed"
+        },
+        {
+            "number": "5+",
+            "label": "Years Experience"
+        },
+        {
+            "number": "100+",
+            "label": "Happy Clients"
+        }
+    ],
+    "skills": [
+        {
+            "category": "Frontend",
+            "icon": "fas fa-code",
+            "technologies": [
+                "React",
+                "Vue.js",
+                "TypeScript",
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "Tailwind CSS"
+            ]
+        },
+        {
+            "category": "Backend",
+            "icon": "fas fa-server",
+            "technologies": [
+                "Node.js",
+                "Express.js",
+                "Python",
+                "Django",
+                "PostgreSQL",
+                "MongoDB",
+                "Redis"
+            ]
+        },
+        {
+            "category": "Tools & DevOps",
+            "icon": "fas fa-tools",
+            "technologies": [
+                "Git",
+                "Docker",
+                "AWS",
+                "Vercel",
+                "Webpack",
+                "Jest",
+                "Figma"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "title": "E-Commerce Platform",
+            "description": "A full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, cart management, and admin dashboard.",
+            "icon": "fas fa-shopping-cart",
+            "technologies": [
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Stripe"
+            ],
+            "links": {
+                "demo": "#",
+                "github": "#"
+            }
+        },
+        {
+            "title": "Task Management App",
+            "description": "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+            "icon": "fas fa-tasks",
+            "technologies": [
+                "Vue.js",
+                "Socket.io",
+                "Express.js",
+                "PostgreSQL"
+            ],
+            "links": {
+                "demo": "#",
+                "github": "#"
+            }
+        },
+        {
+            "title": "Analytics Dashboard",
+            "description": "A comprehensive analytics dashboard with interactive charts, real-time data visualization, and customizable reports for business insights.",
+            "icon": "fas fa-chart-line",
+            "technologies": [
+                "React",
+                "D3.js",
+                "Python",
+                "FastAPI"
+            ],
+            "links": {
+                "demo": "#",
+                "github": "#"
+            }
+        }
+    ]
+}
