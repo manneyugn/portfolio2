@@ -3,15 +3,16 @@ import json
 import os
 
 # Configure Flask for Vercel
-app = Flask(__name__, 
-            template_folder='../templates',
-            static_folder='../static')
-app.secret_key = os.environ.get('SECRET_KEY', 'your-secret-key-here')
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
+app.secret_key = os.environ.get("SECRET_KEY", "your-secret-key-here")
+
 
 def load_portfolio_data():
     """Load portfolio data from JSON file"""
     # Adjust path for Vercel deployment
-    json_path = os.path.join(os.path.dirname(__file__), "..", "static", "data", "portfolio.json")
+    json_path = os.path.join(
+        os.path.dirname(__file__), "..", "static", "data", "portfolio.json"
+    )
     try:
         with open(json_path, "r") as f:
             return json.load(f)
@@ -22,10 +23,12 @@ def load_portfolio_data():
         print(f"Invalid JSON in {json_path}")
         return {}
 
+
 @app.route("/")
 def home():
     data = load_portfolio_data()
     return render_template("index.html", data=data)
+
 
 @app.route("/contact", methods=["POST"])
 def contact():
@@ -42,6 +45,7 @@ def contact():
 
         flash("Thank you for your message! I'll get back to you soon.", "success")
         return redirect(url_for("home") + "#contact")
+
 
 # Export the app for Vercel
 if __name__ == "__main__":

@@ -1,16 +1,16 @@
 {
     "personal": {
-        "name": "John Doe",
-        "title": "Full Stack Developer & UI/UX Designer",
+        "name": "Nam Nguyễn",
+        "title": "Back end Developer",
         "description": "I craft beautiful, responsive web applications with modern technologies. Passionate about creating seamless user experiences and writing clean, efficient code.",
         "bio": [
             "Hello! I'm John, a passionate full-stack developer with over 5 years of experience building web applications. I specialize in React, Node.js, and modern web technologies.",
             "I love solving complex problems and turning ideas into beautiful, functional websites. When I'm not coding, you can find me exploring new technologies, contributing to open source, or enjoying the great outdoors."
         ],
         "contact": {
-            "email": "john.doe@email.com",
-            "phone": "+1 (555) 123-4567",
-            "location": "San Francisco, CA"
+            "email": "sonnam99@gmail.com",
+            "phone": "+84 978 004 683",
+            "location": "Hanoi, Vietnam"
         },
         "social": [
             {
@@ -22,16 +22,6 @@
                 "name": "GitHub",
                 "icon": "fab fa-github",
                 "url": "https://github.com/johndoe"
-            },
-            {
-                "name": "Twitter",
-                "icon": "fab fa-twitter",
-                "url": "https://twitter.com/johndoe"
-            },
-            {
-                "name": "Dribbble",
-                "icon": "fab fa-dribbble",
-                "url": "https://dribbble.com/johndoe"
             }
         ]
     },

@@ -1,9 +1,8 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template
 import json
 import os
 
 app = Flask(__name__)
-app.secret_key = "your-secret-key-here"  # Change this to a random secret key
 
 
 def load_portfolio_data():
@@ -13,34 +12,17 @@ def load_portfolio_data():
         with open(json_path, "r") as f:
             return json.load(f)
     except FileNotFoundError:
-        print(f"Portfolio data file not found at {json_path}")
-        return {}
-    except json.JSONDecodeError:
-        print(f"Invalid JSON in {json_path}")
-        return {}
+        raise FileNotFoundError(f"Portfolio data file not found at {json_path}")
+    except json.JSONDecodeError as e:
+        raise json.JSONDecodeError(
+            f"Invalid JSON in {json_path}: {e.msg}", e.doc, e.pos
+        )
 
 
 @app.route("/")
 def home():
     data = load_portfolio_data()
     return render_template("index.html", data=data)
-
-
-@app.route("/contact", methods=["POST"])
-def contact():
-    if request.method == "POST":
-        name = request.form.get("name")
-        email = request.form.get("email")
-        message = request.form.get("message")
-
-        # Here you would typically save to database or send email
-        print(f"Contact form submission:")
-        print(f"Name: {name}")
-        print(f"Email: {email}")
-        print(f"Message: {message}")
-
-        flash("Thank you for your message! I'll get back to you soon.", "success")
-        return redirect(url_for("home") + "#contact")
 
 
 if __name__ == "__main__":
