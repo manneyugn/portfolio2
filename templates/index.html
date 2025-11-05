@@ -17,9 +17,21 @@
             <div class="logo">{{ data.personal.name[:2]|upper }}</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                {% if data.skills %}
                 <li><a href="#skills">Skills</a></li>
+                {% endif %}
+                {% if data.experience %}
+                <li><a href="#experience">Experience</a></li>
+                {% endif %}
+                {% if data.projects %}
                 <li><a href="#projects">Projects</a></li>
+                {% endif %}
+                {% if data.certifications %}
+                <li><a href="#certificates">Certificates</a></li>
+                {% endif %}
+                {% if data.education %}
+                <li><a href="#education">Education</a></li>
+                {% endif %}
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-right">
@@ -76,30 +88,10 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
-            <p class="section-subtitle fade-in">Get to know me better</p>
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    {% for paragraph in data.personal.bio %}
-                    <p>{{ paragraph }}</p>
-                    {% endfor %}
-                </div>
-                <div class="stats fade-in">
-                    {% for stat in data.stats %}
-                    <div class="stat">
-                        <div class="stat-number">{{ stat.number }}</div>
-                        <div class="stat-label">{{ stat.label }}</div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
+
+
+    {% if data.skills %}
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Skills & Technologies</h2>
@@ -118,8 +110,34 @@
             </div>
         </div>
     </section>
+    {% endif %}
+
+    {% if data.experience %}
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Experience</h2>
+            <p class="section-subtitle fade-in">Work history and roles</p>
+            <div class="timeline">
+                {% for exp in data.experience %}
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        <h3>{{ exp.company }} — <span class="timeline-role">{{ exp.role }}</span></h3>
+                        <div class="timeline-meta">{{ exp.start }} — {{ exp.end }}</div>
+                        <p>{{ exp.summary }}</p>
+                        {% if exp.teamSize %}
+                        <div class="timeline-meta">Team: {{ exp.teamSize }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
 
     <!-- Projects Section -->
+    {% if data.projects %}
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Featured Projects</h2>
@@ -156,6 +174,56 @@
             </div>
         </div>
     </section>
+    {% endif %}
+
+
+    <!-- Certificates Section -->
+    {% if data.certifications %}
+    <section id="certificates" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Certificates</h2>
+            <p class="section-subtitle fade-in">Selected certifications and courses</p>
+            <div class="certificates-grid">
+                {% for cert in data.certifications %}
+                <div class="certificate-card fade-in">
+                    <div class="certificate-image">
+                        <div class="certificate-image-fallback">
+                            <i class="fas fa-award"></i>
+                        </div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">{{ cert.name }}</h3>
+                        <p class="certificate-issuer">{{ cert.year }}{% if cert.note %} • {{ cert.note }}{% endif %}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Education Section -->
+    {% if data.education %}
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Education</h2>
+            <p class="section-subtitle fade-in">Academic background</p>
+            <div class="education-grid">
+                {% for edu in data.education %}
+                <div class="education-card fade-in">
+                    <div class="project-content">
+                        <h3 class="project-title">{{ edu.institution }}</h3>
+                        <div class="project-tech">{{ edu.degree }} • {{ edu.start }} - {{ edu.end }}</div>
+                        {% if edu.notes %}
+                        <p class="project-description">{{ edu.notes }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
 
     <!-- Contact Section -->
     <section id="contact" class="section contact">
