@@ -3,6 +3,10 @@
         "name": "Nam Nguyễn",
         "title": "Back end Developer",
         "description": "I craft beautiful, responsive web applications with modern technologies. Passionate about creating seamless user experiences and writing clean, efficient code.",
+        "profilePicture": {
+            "type": null,
+            "src": null
+        },
         "bio": [
             "Hello! I'm John, a passionate full-stack developer with over 5 years of experience building web applications. I specialize in React, Node.js, and modern web technologies.",
             "I love solving complex problems and turning ideas into beautiful, functional websites. When I'm not coding, you can find me exploring new technologies, contributing to open source, or enjoying the great outdoors."

@@ -88,6 +88,32 @@ body {
     color: var(--primary-color);
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.github-link:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
 .theme-toggle {
     background: none;
     border: 2px solid var(--border-color);
@@ -198,6 +224,133 @@ body {
     object-fit: cover;
     border: 4px solid var(--primary-color);
     box-shadow: var(--shadow-lg);
+}
+
+.profile-pic-fallback {
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.profile-pic-fallback:hover {
+    transform: scale(1.05);
+}
+
+.profile-pic-fallback[data-initials]:before {
+    content: attr(data-initials);
+    font-size: 3rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.profile-pic-fallback[data-initials] i {
+    display: none;
+}
+
+/* Loading state for profile pictures */
+.profile-pic-loading {
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-pic-loading::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 2;
+}
+
+.profile-pic-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 100%);
+    animation: shimmer 1.5s infinite;
+    z-index: 1;
+}
+
+[data-theme="dark"] .profile-pic-loading::after {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent 100%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Hide the actual image while loading */
+.profile-pic-loading img,
+.profile-pic.profile-pic-loading {
+    opacity: 0;
+}
+
+/* Show image once loaded */
+.profile-pic-loaded {
+    opacity: 1 !important;
+    transition: opacity 0.3s ease;
+}
+
+/* Error state indicator */
+.profile-pic-error {
+    position: relative;
+}
+
+.profile-pic-error:after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 2px solid var(--bg-color);
+    opacity: 0;
+    animation: errorPulse 2s infinite;
+}
+
+@keyframes errorPulse {
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
 }
 
 /* Sections */

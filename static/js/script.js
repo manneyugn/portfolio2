@@ -101,12 +101,103 @@ function initScrollListeners() {
   });
 }
 
+// Profile picture fallback handling
+function initProfilePictureFallback() {
+  const heroImage = document.querySelector(".hero-image");
+  const profileImg = document.querySelector(".profile-pic");
+
+  if (profileImg && profileImg.tagName === "IMG") {
+    // Create loading container
+    const loadingContainer = document.createElement("div");
+    loadingContainer.className = "profile-pic profile-pic-loading";
+
+    // Replace the image temporarily with loading container
+    profileImg.style.display = "none";
+    heroImage.insertBefore(loadingContainer, profileImg);
+
+    // Handle successful image load
+    profileImg.addEventListener("load", function () {
+      // Check if image actually loaded properly
+      if (this.naturalWidth > 0 && this.naturalHeight > 0) {
+        // Remove loading container and show image
+        loadingContainer.remove();
+        this.style.display = "block";
+        this.classList.add("profile-pic-loaded");
+      } else {
+        // Image didn't load properly, show fallback
+        loadingContainer.remove();
+        showProfilePictureFallback(this);
+      }
+    });
+
+    // Handle image load error
+    profileImg.addEventListener("error", function () {
+      loadingContainer.remove();
+      showProfilePictureFallback(this);
+    });
+
+    // Set timeout for loading
+    const timeoutDuration = 3000;
+
+    setTimeout(() => {
+      if (loadingContainer.parentNode) {
+        // Still loading after timeout, show fallback
+        loadingContainer.remove();
+        showProfilePictureFallback(profileImg);
+      }
+    }, timeoutDuration);
+  }
+}
+
+// Show fallback when image fails to load
+function showProfilePictureFallback(imgElement) {
+  // Get the user's initials from the page
+  const userName =
+    document.querySelector(".hero-text h1")?.textContent || "User";
+  const initials = userName
+    .split(" ")
+    .map((name) => name.charAt(0))
+    .join("")
+    .toUpperCase()
+    .substring(0, 2);
+
+  // Create fallback div
+  const fallbackDiv = document.createElement("div");
+  fallbackDiv.className = "profile-pic profile-pic-fallback";
+
+  // Show initials if available, otherwise show icon
+  if (initials && initials.length > 0) {
+    fallbackDiv.setAttribute("data-initials", initials);
+    fallbackDiv.innerHTML = `<i class="fas fa-user"></i>`;
+  } else {
+    fallbackDiv.innerHTML = `<i class="fas fa-user"></i>`;
+  }
+
+  // Hide the broken image
+  imgElement.style.display = "none";
+
+  // Add fallback with smooth animation
+  fallbackDiv.style.opacity = "0";
+  fallbackDiv.style.transform = "scale(0.8)";
+
+  // Insert the fallback
+  imgElement.parentNode.insertBefore(fallbackDiv, imgElement);
+
+  // Animate in
+  setTimeout(() => {
+    fallbackDiv.style.transition = "all 0.3s ease";
+    fallbackDiv.style.opacity = "1";
+    fallbackDiv.style.transform = "scale(1)";
+  }, 50);
+}
+
 // Initialize everything when the DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
   initTheme();
   initSmoothScrolling();
   handleScrollAnimations();
   initScrollListeners();
+  initProfilePictureFallback();
 });
 
 // Initialize typing animation on page load

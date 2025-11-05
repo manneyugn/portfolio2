@@ -22,9 +22,14 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" onclick="toggleTheme()">
-                <i class="fas fa-moon"></i>
-            </button>
+            <div class="nav-right">
+                <a href="https://github.com/manneyugn/portfolio2.git" target="_blank" rel="noopener noreferrer" class="github-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -46,10 +51,23 @@
                     </div>
                 </div>
                 <div class="hero-image fade-in">
-                    <div class="profile-pic"
-                        style="background: linear-gradient(135deg, #6366f1, #ec4899); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    {% if data.personal.profilePicture %}
+                        {% if data.personal.profilePicture.type == 'base64' %}
+                            <img class="profile-pic" src="data:image/jpeg;base64,{{ data.personal.profilePicture.src }}" alt="{{ data.personal.name }}'s profile picture">
+                        {% elif data.personal.profilePicture.type == 'url' %}
+                            <img class="profile-pic" src="{{ data.personal.profilePicture.src }}" alt="{{ data.personal.name }}'s profile picture">
+                        {% else %}
+                            <!-- Fallback to icon if type is not recognized -->
+                            <div class="profile-pic profile-pic-fallback">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        <!-- Fallback to icon if no profile picture is provided -->
+                        <div class="profile-pic profile-pic-fallback">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
