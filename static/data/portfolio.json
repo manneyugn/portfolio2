@@ -1,15 +1,15 @@
 {
     "personal": {
-        "name": "Nam Nguyễn",
-        "title": "Back end Developer",
-        "description": "I craft beautiful, responsive web applications with modern technologies. Passionate about creating seamless user experiences and writing clean, efficient code.",
+        "name": "Nguyễn Sơn Nam",
+        "title": "Back-end Developer",
+        "description": "Experienced Back-end Developer with a strong background in building scalable web applications and systems. Proficient in JavaScript and Golang, familiar with Kafka, Redis, ElasticSearch and containerized deployments.",
         "profilePicture": {
             "type": null,
             "src": null
         },
         "bio": [
-            "Hello! I'm John, a passionate full-stack developer with over 5 years of experience building web applications. I specialize in React, Node.js, and modern web technologies.",
-            "I love solving complex problems and turning ideas into beautiful, functional websites. When I'm not coding, you can find me exploring new technologies, contributing to open source, or enjoying the great outdoors."
+            "Experienced Back-end Developer comfortable working on high-throughput services, microservices, and streaming/OTT platforms.",
+            "Skilled in designing and optimizing APIs, performance tuning, and building production-ready systems using Golang and Node.js ecosystems."
         ],
         "contact": {
             "email": "sonnam99@gmail.com",
@@ -20,115 +20,187 @@
             {
                 "name": "LinkedIn",
                 "icon": "fab fa-linkedin-in",
-                "url": "https://linkedin.com/in/johndoe"
+                "url": "https://www.linkedin.com/in/manneyugn/"
             },
             {
                 "name": "GitHub",
                 "icon": "fab fa-github",
-                "url": "https://github.com/johndoe"
+                "url": "https://github.com/manneyugn"
             }
         ]
     },
     "stats": [
         {
-            "number": "50+",
-            "label": "Projects Completed"
-        },
-        {
             "number": "5+",
             "label": "Years Experience"
         },
         {
-            "number": "100+",
-            "label": "Happy Clients"
+            "number": "—",
+            "label": "Open to opportunities"
         }
     ],
     "skills": [
         {
-            "category": "Frontend",
+            "category": "Languages & Platforms",
             "icon": "fas fa-code",
             "technologies": [
-                "React",
-                "Vue.js",
-                "TypeScript",
-                "JavaScript",
-                "HTML5",
-                "CSS3",
-                "Tailwind CSS"
+                "Golang",
+                "JavaScript/TypeScript",
+                "Node.js",
+                "NestJS",
+                "Gin",
+                "Beego",
+                "ReactJS",
+                "NextJS"
             ]
         },
         {
-            "category": "Backend",
-            "icon": "fas fa-server",
+            "category": "Databases & Storage",
+            "icon": "fas fa-database",
             "technologies": [
-                "Node.js",
-                "Express.js",
-                "Python",
-                "Django",
+                "MySQL",
                 "PostgreSQL",
                 "MongoDB",
-                "Redis"
+                "Redis",
+                "ElasticSearch",
+                "Custom key-value stores"
             ]
         },
         {
-            "category": "Tools & DevOps",
+            "category": "Infrastructure & Tools",
             "icon": "fas fa-tools",
             "technologies": [
-                "Git",
                 "Docker",
-                "AWS",
-                "Vercel",
-                "Webpack",
-                "Jest",
-                "Figma"
+                "Kafka",
+                "gRPC",
+                "Apache Thrift",
+                "K6",
+                "Sysbench",
+                "APM",
+                "Git"
             ]
+        }
+    ],
+    "experience": [
+        {
+            "company": "Datanest",
+            "role": "Developer",
+            "start": "Jul 2024",
+            "end": "Now",
+            "summary": "Working on internal HRM system."
+        },
+        {
+            "company": "VTVlive",
+            "role": "Developer",
+            "start": "Oct 2022",
+            "end": "Jun 2024",
+            "summary": "Developed OTT system and backend services for streaming products."
+        },
+        {
+            "company": "TrustKeys Network",
+            "role": "Developer",
+            "start": "Jul 2020",
+            "end": "Aug 2022",
+            "summary": "Backend and full-stack work on crypto trading and social features. Implemented P2P exchange, lucky game, and eKYC modules."
+        },
+        {
+            "company": "A.N lab",
+            "role": "Intern",
+            "start": "Jun 2019",
+            "end": "Jan 2020",
+            "summary": "Training on Qt framework and client/server application development."
         }
     ],
     "projects": [
         {
-            "title": "E-Commerce Platform",
-            "description": "A full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, cart management, and admin dashboard.",
-            "icon": "fas fa-shopping-cart",
+            "title": "ONlive",
+            "url": "https://onlive.vn/",
+            "period": "2022 - now",
+            "role": "Back-end Developer",
+            "teamSize": "~10",
+            "description": "Worked on streaming platform: RESTful APIs, transcode manager, websocket cluster, performance tuning, Docker/K8s deployments, and load testing.",
             "technologies": [
-                "React",
-                "Node.js",
+                "Golang",
+                "NestJS",
+                "BullMQ",
+                "Redis",
+                "Kafka",
+                "MySQL",
                 "MongoDB",
-                "Stripe"
+                "K6",
+                "Sysbench",
+                "Docker"
             ],
             "links": {
-                "demo": "#",
-                "github": "#"
+                "demo": "https://onlive.vn/",
+                "github": ""
             }
         },
         {
-            "title": "Task Management App",
-            "description": "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-            "icon": "fas fa-tasks",
+            "title": "TrustKeys Network",
+            "url": "https://trustkeys.network/",
+            "period": "2020 - 2022",
+            "role": "Developer",
+            "teamSize": "~8",
+            "description": "Built backend services for encrypted chat, social features, and a crypto exchange (P2P). Focus on performance optimization and feature development.",
             "technologies": [
-                "Vue.js",
-                "Socket.io",
-                "Express.js",
-                "PostgreSQL"
+                "Golang",
+                "Kafka",
+                "ElasticSearch",
+                "Redis",
+                "Node.js",
+                "ReactJS"
             ],
             "links": {
-                "demo": "#",
-                "github": "#"
+                "demo": "https://trustkeys.network/",
+                "github": ""
             }
         },
         {
-            "title": "Analytics Dashboard",
-            "description": "A comprehensive analytics dashboard with interactive charts, real-time data visualization, and customizable reports for business insights.",
-            "icon": "fas fa-chart-line",
+            "title": "The Only (NFT marketplace)",
+            "url": "https://theonly.biz/",
+            "period": "2021 - 2022",
+            "role": "Developer",
+            "teamSize": "~5",
+            "description": "Front-end and smart-contract work for NFT marketplace, developed admin and user UIs and integrated blockchain smart contracts.",
             "technologies": [
-                "React",
-                "D3.js",
-                "Python",
-                "FastAPI"
+                "ReactJS",
+                "NextJS",
+                "Web3",
+                "Solidity",
+                "TailwindCSS"
             ],
             "links": {
-                "demo": "#",
-                "github": "#"
+                "demo": "https://theonly.biz/",
+                "github": ""
             }
+        }
+    ],
+    "education": [
+        {
+            "institution": "Military Technical Academy",
+            "degree": "Information Technology",
+            "start": "Oct 2017",
+            "end": "Jul 2022",
+            "notes": "Scholarship in 2nd and 3rd year"
+        }
+    ],
+    "certifications": [
+        {
+            "name": "TOEIC",
+            "year": 2022,
+            "note": "Score: 870"
+        }
+    ],
+    "languages": [
+        {
+            "name": "English",
+            "level": "Conversant",
+            "note": "TOEIC 870"
+        },
+        {
+            "name": "Japanese",
+            "level": "Basic/Conversational"
         }
     ]
 }

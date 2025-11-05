@@ -23,7 +23,8 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-right">
-                <a href="https://github.com/manneyugn/portfolio2.git" target="_blank" rel="noopener noreferrer" class="github-link">
+                <a href="https://github.com/manneyugn/portfolio2.git" target="_blank" rel="noopener noreferrer"
+                    class="github-link">
                     <i class="fab fa-github"></i>
                 </a>
                 <button class="theme-toggle" onclick="toggleTheme()">
@@ -52,21 +53,23 @@
                 </div>
                 <div class="hero-image fade-in">
                     {% if data.personal.profilePicture %}
-                        {% if data.personal.profilePicture.type == 'base64' %}
-                            <img class="profile-pic" src="data:image/jpeg;base64,{{ data.personal.profilePicture.src }}" alt="{{ data.personal.name }}'s profile picture">
-                        {% elif data.personal.profilePicture.type == 'url' %}
-                            <img class="profile-pic" src="{{ data.personal.profilePicture.src }}" alt="{{ data.personal.name }}'s profile picture">
-                        {% else %}
-                            <!-- Fallback to icon if type is not recognized -->
-                            <div class="profile-pic profile-pic-fallback">
-                                <i class="fas fa-user"></i>
-                            </div>
-                        {% endif %}
+                    {% if data.personal.profilePicture.type == 'base64' %}
+                    <img class="profile-pic" src="data:image/jpeg;base64,{{ data.personal.profilePicture.src }}"
+                        alt="{{ data.personal.name }}'s profile picture">
+                    {% elif data.personal.profilePicture.type == 'url' %}
+                    <img class="profile-pic" src="{{ data.personal.profilePicture.src }}"
+                        alt="{{ data.personal.name }}'s profile picture">
                     {% else %}
-                        <!-- Fallback to icon if no profile picture is provided -->
-                        <div class="profile-pic profile-pic-fallback">
-                            <i class="fas fa-user"></i>
-                        </div>
+                    <!-- Fallback to icon if type is not recognized -->
+                    <div class="profile-pic profile-pic-fallback">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <!-- Fallback to icon if no profile picture is provided -->
+                    <div class="profile-pic profile-pic-fallback">
+                        <i class="fas fa-user"></i>
+                    </div>
                     {% endif %}
                 </div>
             </div>
@@ -136,12 +139,16 @@
                             {% endfor %}
                         </div>
                         <div class="project-links">
+                            {% if project.links and project.links.demo %}
                             <a href="{{ project.links.demo }}" class="project-link">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
+                            {% endif %}
+                            {% if project.links and project.links.github %}
                             <a href="{{ project.links.github }}" class="project-link">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
